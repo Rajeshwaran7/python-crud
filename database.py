@@ -1,3 +1,5 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -7,7 +9,7 @@ logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
 # Create engine and other configurations here
 
-DB_URL = "mysql+pymysql://root:root@127.0.0.1/school"
+DB_URL = os.getenv('DB_URL')
 
 engine = create_engine(DB_URL)
 
